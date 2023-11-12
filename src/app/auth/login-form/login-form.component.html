@@ -1,0 +1,39 @@
+<div *ngIf="loading" class="myContainer">
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Login</h4>
+                </div>
+                <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+                    {{errorMessage}}
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <div class="mb-3">
+                            <label for="Email" class="form-label">Email</label>
+                            <input formControlName="email" type="email" class="form-control" id="Email"
+                                placeholder="Enter your Email">
+                        </div>
+                        <div *ngIf="loginForm.get('email')!.hasError('email') && loginForm.get('email')!.touched"
+                            class="alert alert-danger">
+                            Invalid email address
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input formControlName="password" type="password" class="form-control" id="password"
+                                placeholder="Enter your password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

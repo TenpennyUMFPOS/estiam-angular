@@ -1,0 +1,28 @@
+<app-header></app-header>
+<!-- User Table -->
+<div class="user-table">
+    <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" id="userTable" class="table">
+
+        <thead>
+            <tr>
+                <th> ID</th>
+                <th> Name</th>
+                <th> Email</th>
+                <th> Avatar</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>
+                    <div class="user-avatar">
+                        <img [src]="user.avatar" alt="User Avatar" style="height: 50px;" />
+                    </div>
+
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

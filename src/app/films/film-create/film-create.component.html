@@ -1,0 +1,36 @@
+<app-header></app-header>
+<div class="container">
+
+    <h1>Add a new movie</h1>
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        {{errorMessage}}
+    </div>
+    <div *ngIf="successMessage" class="alert alert-success" role="alert">
+        {{successMessage}}
+    </div>
+    <form [formGroup]="filmForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="userId">User ID:</label>
+            <input type="number" id="userId" class="form-control" formControlName="userId">
+            <div *ngIf="filmForm.get('userId')!.hasError('required') && filmForm.get('userId')!.touched">
+                <div class="alert alert-danger">User ID is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" id="title" class="form-control" formControlName="title">
+            <div *ngIf="filmForm.get('title')!.hasError('required') && filmForm.get('title')!.touched">
+                <div class="alert alert-danger">Title is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="body">Description:</label>
+            <textarea id="body" class="form-control" formControlName="body"></textarea>
+            <div *ngIf="filmForm.get('body')!.hasError('required') && filmForm.get('body')!.touched">
+                <div class="alert alert-danger">Description is required</div>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="filmForm.invalid">Create film</button>
+    </form>
+</div>
