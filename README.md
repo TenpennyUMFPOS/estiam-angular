@@ -2,6 +2,24 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
 
+## Overview
+This is an Angular project EXAM Full Stack Front–Advanced(E4)Évaluation.
+
+## Features
+
+1. **User Authentication:**
+   - Log in with these credentials(email : john@mail.com , Password : changeme).
+   - Log out to end the session.
+
+2. **User List:**
+   - View a list of users.
+   - Search for users.
+   - Paginate through the user list.
+
+3. **Movie List:**
+   - View a list of movies.
+   - Create a new movie.(Movie won't be actually created you'll just get a popup and be redirected)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
